@@ -4,7 +4,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
+
+const emit = defineEmits(['ingredients'])
 
 const searchInput = ref('')
 
@@ -22,6 +24,8 @@ const onSearch = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data)
+        const name = data.products[0].product_name_en
+        emit('ingredients', name)
       })
       .catch(error => {
         console.log(error)
