@@ -4,11 +4,12 @@
   </va-list>
 </template>
 
-<script setup>
-  import { reactive } from 'vue';
+<script setup lang="ts">
+  export interface Ingredient {
+    name: string
+  }
 
-  const ingredients = reactive([
-    {name: 'Tomato'},
-    {name: 'Salad'},
-  ])
+  const props = defineProps({
+    ingredients: Array
+  })
 </script>

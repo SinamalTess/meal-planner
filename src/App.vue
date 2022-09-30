@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <SearchBar @ingredients="logIngredients"/>
-    <IngredientList />
-  </div>
+    <div>
+        <SearchBar @ingredients="logIngredients" />
+        <IngredientList :ingredients="ingredients" />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -10,10 +10,13 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import IngredientList from './components/IngredientList.vue'
 import SearchBar from './components/SearchBar.vue'
+import { reactive } from 'vue'
 
-const logIngredients = (name) => {
+let ingredients = reactive([])
+
+const logIngredients = (name: string) => {
   console.log(name)
+  ingredients.push({name})
 }
+
 </script>
-
-
