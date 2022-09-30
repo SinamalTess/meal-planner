@@ -22,11 +22,13 @@ const isLoading = ref(false)
 const foodData = new FoodData()
 
 const onSearch = () => {
+    emit('products', [])
     const { value } = searchInput
     isLoading.value = true
     const emitProducts = (data: any) => {
         const products = data.slice(0, 5).map((product) => ({
             name: product.product_name_en ?? 'No name for this product',
+            img: product.image_url,
         }))
         emit('products', products)
         isLoading.value = false

@@ -1,25 +1,26 @@
 <template>
-  <div>
-    <h1>Build your own recipe</h1>
-    <SearchBar @products="logProducts" />
-    <ProductList :products="products" @remove-product="removeProduct"/>
-  </div>
+    <div>
+        <h1>Build your own recipe</h1>
+        <SearchBar @products="addProducts" />
+        <ProductList :products="state.products" @remove-product="removeProduct" />
+    </div>
 </template>
 
 <script setup lang="ts">
 import ProductList from './ProductList.vue'
 import SearchBar from './SearchBar.vue'
 import { reactive } from 'vue'
+import { Product } from '../type/Product'
 
-let products = reactive([])
+let state = reactive<{ products: Product[] }>({ products: [] })
 
-const logProducts = (product: {}) => {
-  products.push(...product)
+const addProducts = (newProducts: Product[]) => {
+    console.log(newProducts)
+    state.products = newProducts
 }
 
 const removeProduct = (name: string) => {
-  const index = products.findIndex(product => product.name === name)
-  products.splice(index, 1)
+    const index = state.products.findIndex((product) => product.name === name)
+    state.products.splice(index, 1)
 }
-
 </script>
