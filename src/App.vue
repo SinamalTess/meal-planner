@@ -1,7 +1,7 @@
 <template>
     <div>
         <SearchBar @ingredients="logIngredients" />
-        <IngredientList :ingredients="ingredients" />
+        <IngredientList :ingredients="ingredients" @remove-ingredient="removeIngredient"/>
     </div>
 </template>
 
@@ -15,8 +15,12 @@ import { reactive } from 'vue'
 let ingredients = reactive([])
 
 const logIngredients = (name: string) => {
-  console.log(name)
   ingredients.push({name})
+}
+
+const removeIngredient = (name: string) => {
+  const index = ingredients.findIndex(ingredient => ingredient.name === name)
+  ingredients.splice(index, 1)
 }
 
 </script>
