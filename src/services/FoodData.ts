@@ -9,7 +9,7 @@ export class FoodData {
         )
     }
 
-    fetchIngredient = (value: string, callback: Function) => {
+    fetchProducts = (value: string, callback: Function) => {
         const params = {
             json: 'true',
             action: 'process',
@@ -22,10 +22,9 @@ export class FoodData {
 
         fetch(this.url)
             .then((response) => response.json())
-            .then((data) => {
+            .then((data: any) => {
                 console.log(data)
-                const name = data.products[0].product_name_en
-                callback(name)
+                callback(data.products)
             })
             .catch((error) => {
                 console.log(error)
