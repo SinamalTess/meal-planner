@@ -2,7 +2,7 @@
   <h1>{{msg}}</h1>
 </template>
 
-<script setup>
+<script setup lang="ts">
   const props = defineProps({
     msg: String
   })

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Language />
         <Recipe />
     </div>
 </template>
@@ -8,5 +9,6 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import Recipe from './components/Recipe.vue'
+import Language from './components/Language.vue'
 
 </script>
