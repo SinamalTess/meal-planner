@@ -1,11 +1,9 @@
 export class FoodData {
     url: URL
-    prefix: string
 
-    constructor() {
-        this.prefix = 'us.'
+    constructor(language: string) {
         this.url = new URL(
-            `https://${this.prefix}openfoodfacts.org/cgi/search.pl`
+            `https://${language}.openfoodfacts.org/cgi/search.pl`
         )
     }
 
@@ -23,7 +21,7 @@ export class FoodData {
         fetch(this.url)
             .then((response) => response.json())
             .then((data: any) => {
-                console.log(data)
+                //console.log(data)
                 callback(data.products)
             })
             .catch((error) => {

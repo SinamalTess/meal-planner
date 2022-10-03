@@ -1,10 +1,7 @@
 <template>
-    <va-select v-model="language" :options="options" />
+    <va-select v-model="$i18n.locale" :options="$i18n.availableLocales" />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 
-const language = ref('en')
-const options = ['en', 'fr']
 </script>

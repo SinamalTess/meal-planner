@@ -15,7 +15,7 @@ import { Product } from '../type/Product'
 let state = reactive<{ products: Product[] }>({ products: [] })
 
 const addProducts = (newProducts: Product[]) => {
-    console.log(newProducts)
+    //console.log(newProducts)
     state.products = newProducts
 }
 
