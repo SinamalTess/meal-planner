@@ -1,7 +1,11 @@
 <template>
     <div>
         <Language />
-        <Recipe />
+        <Recipe >
+          <template #title>
+            <h1>Build your own recipe</h1>
+          </template>
+        </Recipe>
     </div>
 </template>
 

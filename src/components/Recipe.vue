@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Build your own recipe</h1>
+        <slot name="title"></slot>
         <SearchBar @products="addProducts" />
         <ProductList :products="state.products" @remove-product="removeProduct" />
     </div>
