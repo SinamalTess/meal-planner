@@ -1,0 +1,12 @@
+{
+    "testEnvironment": "jsdom",
+    "transform": {
+        "^.+\\.vue$": "@vue/vue3-jest",
+        "^.+\\js$": "babel-jest",
+        "^.+\\.ts$": "ts-jest"
+    },
+    "setupFilesAfterEnv": ["<rootDir>/setupTests.js"],
+    "testEnvironmentOptions": {
+        "customExportConditions": ["node", "node-addons"]
+    }
+}
